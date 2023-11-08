@@ -7,7 +7,7 @@ class Program
 {
     static void Main()
     {
-        var restaurant = new Restaurant();
+        var restaurant = new Restaurant();//
         restaurant.Run();
     }
 }
