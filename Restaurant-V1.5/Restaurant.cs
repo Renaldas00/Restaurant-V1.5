@@ -12,7 +12,7 @@ namespace RestaurantN
         // Instances of TableManager and OrderManager
         private TableManager tableManager;
         private OrderManager orderManager;
-        // Constructor for the Restaurant class
+
         public Restaurant()
         {
             // Initialize the TableManager and OrderManager instances
