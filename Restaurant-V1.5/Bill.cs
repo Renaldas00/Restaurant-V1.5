@@ -13,18 +13,18 @@ namespace BillN
     }
 
     public class Bill : IBillGenerator
+    {
+        public void GenerateBill(Order order, decimal totalCost)
         {
-            public void GenerateBill(Order order, decimal totalCost)
+            Console.WriteLine("--------------------------------------------------------------");
+            Console.WriteLine("Bill:");
+            foreach (string item in order.Items)
             {
-                Console.WriteLine("--------------------------------------------------------------");
-                Console.WriteLine("Bill:");
-                foreach (string item in order.Items)
-                {
-                    Console.WriteLine(item);
-                }
-                Console.WriteLine($"Total Cost: {totalCost.ToString("0.00")} EUR");
-                Console.WriteLine("--------------------------------------------------------------");
+                Console.WriteLine(item);
             }
+            Console.WriteLine($"Total Cost: {totalCost.ToString("0.00")} EUR");
+            Console.WriteLine("--------------------------------------------------------------");
         }
-    
+    }
 }
+

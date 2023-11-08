@@ -25,7 +25,6 @@ namespace Tests
             bill.GenerateBill(order, totalCost);
             string printedBill = sw.ToString();
 
-            // Assert
             Assert.IsTrue(printedBill.Contains("Bill:"));
             Assert.IsTrue(printedBill.Contains("Item 1 - 10.00 EUR"));
             Assert.IsTrue(printedBill.Contains("Item 2 - 20.00 EUR"));
@@ -54,7 +53,6 @@ namespace Tests
             menu.ShowMenu();
             string printedMenu = expectedOutput.ToString();
 
-            // Assert
             Assert.IsTrue(printedMenu.Contains("Menu:"));
 
             // Clean up
@@ -69,13 +67,11 @@ namespace Tests
         public void TestInitializeTables()
         {
             // Arrange
-            TableManager table = new TableManager(); // Restaurant instance
+            TableManager table = new TableManager(); 
 
             // Run fn
             table.InitializeTables();
 
-            // Assert
-            // Check if the tables list has been initialized and contains 10 tables
             Assert.IsNotNull(table.tables);
             Assert.AreEqual(10, table.tables.Count);
         }

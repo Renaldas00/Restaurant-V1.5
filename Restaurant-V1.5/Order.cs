@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TableN;
 using MenuN;
 using BillN;
+
 namespace OrderN
 {
     public class Order
@@ -27,12 +28,14 @@ namespace OrderN
             Items.Clear();
         }
     }
+
     public class OrderManager
     {
         private TableManager tableManager;
         private Menu menu;
         private Order order;
 
+        // Constructor to initialize the order manager
         public OrderManager(TableManager tableManager)
         {
             this.tableManager = tableManager;
@@ -122,9 +125,9 @@ namespace OrderN
             DateTime dateTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, ltTimeZone);
             Console.WriteLine($"Order Time: {dateTime.ToString("yyyy-MM-dd HH:mm:ss")}");
 
+            // Instance to generate a bill
             Bill billGenerator = new Bill();
             billGenerator.GenerateBill(order, totalCost);
         }
     }
 }
-

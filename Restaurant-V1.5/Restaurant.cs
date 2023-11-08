@@ -9,14 +9,16 @@ namespace RestaurantN
 {
     public class Restaurant
     {
+        // Instances of TableManager and OrderManager
         private TableManager tableManager;
         private OrderManager orderManager;
+        // Constructor for the Restaurant class
         public Restaurant()
         {
+            // Initialize the TableManager and OrderManager instances
             tableManager = new TableManager();
             orderManager = new OrderManager(tableManager);
         }
-
         public void Run()
         {
             while (true)

@@ -17,10 +17,10 @@ namespace TableN
             Status = "Available";
         }
     }
+
     public class TableManager
     {
         public List<Table> tables;
-
         public TableManager()
         {
             InitializeTables();
@@ -29,6 +29,7 @@ namespace TableN
         public void InitializeTables()
         {
             tables = new List<Table>();
+
             for (int i = 1; i <= 10; i++)
             {
                 tables.Add(new Table(i));
@@ -93,4 +94,5 @@ namespace TableN
             }
         }
     }
+
 }
