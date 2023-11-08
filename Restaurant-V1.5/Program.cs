@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using OrderN;
-using ReceiptN;
 using RestaurantN;
 class Program
 {

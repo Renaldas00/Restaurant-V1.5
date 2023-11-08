@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Table;
+using TableN;
 using MenuN;
+using BillN;
 namespace OrderN
 {
     public class Order
@@ -121,7 +122,7 @@ namespace OrderN
             DateTime dateTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, ltTimeZone);
             Console.WriteLine($"Order Time: {dateTime.ToString("yyyy-MM-dd HH:mm:ss")}");
 
-            Bill.Bill billGenerator = new Bill.Bill();
+            Bill billGenerator = new Bill();
             billGenerator.GenerateBill(order, totalCost);
         }
     }

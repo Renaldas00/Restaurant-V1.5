@@ -1,40 +1,37 @@
 using OrderN;
-using RestaurantN;
-using ReceiptN;
+using BillN;
 using MenuN;
-using OrderN;
-using Table;
+using TableN;
 
 namespace Tests
 {
     [TestClass]
-    public class ReceiptTests
+    public class BillTest
     {
         [TestMethod]
-        public void GenerateReceipt_ShouldOutputReceipt()
+        public void GenerateBill_ShouldOutputBill()
         {
             // Arrange
-            var order = new Order(); // Create an Order instance with sample items
+            var order = new Order(); // Order instance with samples
             order.Items.Add("Item 1 - 10.00 EUR");
             order.Items.Add("Item 2 - 20.00 EUR");
             decimal totalCost = 30.00M;
 
-            var receipt = new Receipt();
+            var bill = new Bill();
             StringWriter sw = new StringWriter();
-            Console.SetOut(sw); // Redirect Console.WriteLine to StringWriter
-
-            // Act
-            receipt.GenerateReceipt(order, totalCost);
-            string printedReceipt = sw.ToString();
+            Console.SetOut(sw); // WriteLine to StringWriter
+            
+            // Run fn
+            bill.GenerateBill(order, totalCost);
+            string printedBill = sw.ToString();
 
             // Assert
-            // You can use assertions to check if the expected output is generated
-            Assert.IsTrue(printedReceipt.Contains("Receipt:"));
-            Assert.IsTrue(printedReceipt.Contains("Item 1 - 10.00 EUR"));
-            Assert.IsTrue(printedReceipt.Contains("Item 2 - 20.00 EUR"));
-            Assert.IsTrue(printedReceipt.Contains("Total Cost: 30.00 EUR"));
+            Assert.IsTrue(printedBill.Contains("Bill:"));
+            Assert.IsTrue(printedBill.Contains("Item 1 - 10.00 EUR"));
+            Assert.IsTrue(printedBill.Contains("Item 2 - 20.00 EUR"));
+            Assert.IsTrue(printedBill.Contains("Total Cost: 30.00 EUR"));
 
-            // Clean up the redirected Console output
+            // Clean up
             sw.Close();
             Console.SetOut(Console.Out);
         }
@@ -48,21 +45,19 @@ namespace Tests
         public void ShowMenu_ShouldOutputMenuItems()
         {
             // Arrange
-            string sampleMenuFilePath = "menu.txt"; // Replace with a valid file path
-            var menu = new Menu(sampleMenuFilePath); // Provide a valid menu file path
+            string sampleMenuFilePath = "menu.txt";
+            var menu = new Menu(sampleMenuFilePath);
             var expectedOutput = new StringWriter();
-            Console.SetOut(expectedOutput);
+            Console.SetOut(expectedOutput); // WriteLine to StringWriter
 
-            // Act
+            // Run fn
             menu.ShowMenu();
             string printedMenu = expectedOutput.ToString();
 
             // Assert
             Assert.IsTrue(printedMenu.Contains("Menu:"));
-            // You can add additional assertions to check specific menu items or formatting
-            // For example, you can check if expected menu items are present in the output.
 
-            // Clean up the redirected Console output
+            // Clean up
             expectedOutput.Close();
             Console.SetOut(Console.Out);
         }
@@ -74,9 +69,9 @@ namespace Tests
         public void TestInitializeTables()
         {
             // Arrange
-            TableManager table = new TableManager(); // Create a Restaurant instance
+            TableManager table = new TableManager(); // Restaurant instance
 
-            // Act
+            // Run fn
             table.InitializeTables();
 
             // Assert
