@@ -109,7 +109,7 @@ namespace OrderN
 
             foreach (string item in order.Items)
             {
-                string[] parts = item.Split('-');
+                string[] parts = item.Split('-'); //
                 if (parts.Length == 2)
                 {
                     Console.WriteLine(item);
