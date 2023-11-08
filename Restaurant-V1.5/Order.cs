@@ -120,13 +120,13 @@ namespace OrderN
             }
 
             Console.WriteLine($"Total Cost: {totalCost.ToString("0.00")} EUR");
-
+            // just get pc time
             TimeZoneInfo ltTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Europe/Vilnius");
             DateTime dateTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, ltTimeZone);
             Console.WriteLine($"Order Time: {dateTime.ToString("yyyy-MM-dd HH:mm:ss")}");
 
             // Instance to generate a bill
-            Bill billGenerator = new Bill();
+            IBillGenerator billGenerator = new Bill();
             billGenerator.GenerateBill(order, totalCost);
         }
     }
